@@ -1899,14 +1899,14 @@ OUTPUT(Cvicenie2.elf elf32-littlearm)
  .debug_line    0x0000075d      0x1e7 src\stm32l1xx_it.o
  .debug_line    0x00000944      0x21a src\system_stm32l1xx.o
 
-.debug_str      0x00000000      0x91a
+.debug_str      0x00000000      0x918
  .debug_str     0x00000000      0x6bd Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
                                 0x756 (size before relaxing)
- .debug_str     0x000006bd       0xb5 src\main.o
-                                0x284 (size before relaxing)
- .debug_str     0x00000772       0xa6 src\stm32l1xx_it.o
+ .debug_str     0x000006bd       0xb3 src\main.o
+                                0x282 (size before relaxing)
+ .debug_str     0x00000770       0xa6 src\stm32l1xx_it.o
                                 0x222 (size before relaxing)
- .debug_str     0x00000818      0x102 src\system_stm32l1xx.o
+ .debug_str     0x00000816      0x102 src\system_stm32l1xx.o
                                 0x381 (size before relaxing)
 
 .comment        0x00000000       0x7e

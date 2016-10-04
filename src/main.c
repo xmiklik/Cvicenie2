@@ -48,7 +48,7 @@ SOFTWARE.
 */
 int main(void)
 {
-	uint8_t tlacidlo;
+	uint8_t button;
 
 		//nastavenie vystupu pre LED
 		RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);	// LED
@@ -75,9 +75,9 @@ int main(void)
 
 	  while (1)
 	  {
-		  tlacidlo = (GPIOC->IDR & (0b1<<13))>>13;
+		  button = (GPIOC->IDR & (0b1<<13))>>13;
 
-		  if(tlacidlo==0)
+		  if(button==0)
 		  {
 			  GPIOA->ODR |= 0b1<<5;
 		  }

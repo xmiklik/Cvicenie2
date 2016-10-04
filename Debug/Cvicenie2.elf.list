@@ -31,13 +31,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  13 .debug_line   00000b5e  00000000  00000000  00012288  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    0000091a  00000000  00000000  00012de6  2**0
+ 14 .debug_str    00000918  00000000  00000000  00012de6  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .comment      0000007e  00000000  00000000  00013700  2**0
+ 15 .comment      0000007e  00000000  00000000  000136fe  2**0
                   CONTENTS, READONLY
- 16 .debug_frame  0000080c  00000000  00000000  00013780  2**2
+ 16 .debug_frame  0000080c  00000000  00000000  0001377c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 17 .stabstr      0000003f  00000000  00000000  00013f8c  2**0
+ 17 .stabstr      0000003f  00000000  00000000  00013f88  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -138,7 +138,7 @@ int main(void)
  80001b8:	b580      	push	{r7, lr}
  80001ba:	b082      	sub	sp, #8
  80001bc:	af00      	add	r7, sp, #0
-	uint8_t tlacidlo;
+	uint8_t button;
 
 		//nastavenie vystupu pre LED
 		RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);	// LED
@@ -252,7 +252,7 @@ int main(void)
 
 	  while (1)
 	  {
-		  tlacidlo = (GPIOC->IDR & (0b1<<13))>>13;
+		  button = (GPIOC->IDR & (0b1<<13))>>13;
  800028a:	4b0f      	ldr	r3, [pc, #60]	; (80002c8 <main+0x110>)
  800028c:	8a1b      	ldrh	r3, [r3, #16]
  800028e:	b29b      	uxth	r3, r3
@@ -260,7 +260,7 @@ int main(void)
  8000294:	135b      	asrs	r3, r3, #13
  8000296:	71fb      	strb	r3, [r7, #7]
 
-		  if(tlacidlo==0)
+		  if(button==0)
  8000298:	79fb      	ldrb	r3, [r7, #7]
  800029a:	2b00      	cmp	r3, #0
  800029c:	d108      	bne.n	80002b0 <main+0xf8>
