@@ -177,7 +177,7 @@ int main(void)
  80001fc:	f443 6340 	orr.w	r3, r3, #3072	; 0xc00
  8000200:	6093      	str	r3, [r2, #8]
 
-		//nastavenie vstupu pre tlacidlo
+		//nastavenie vstupu pre tlacidlo ul2
 		GPIOC->MODER &= ~((0b11)<<(13*2));	// Input
  8000202:	4a43      	ldr	r2, [pc, #268]	; (8000310 <main+0x158>)
  8000204:	4b42      	ldr	r3, [pc, #264]	; (8000310 <main+0x158>)
@@ -199,7 +199,7 @@ int main(void)
  8000224:	f023 6340 	bic.w	r3, r3, #201326592	; 0xc000000
  8000228:	60d3      	str	r3, [r2, #12]
 
-		GPIOA->ODR |= 0b1<<5;		// ul1
+		GPIOA->ODR |= 0b1<<5;		// ul1 zapnutie
  800022a:	4a38      	ldr	r2, [pc, #224]	; (800030c <main+0x154>)
  800022c:	4b37      	ldr	r3, [pc, #220]	; (800030c <main+0x154>)
  800022e:	8a9b      	ldrh	r3, [r3, #20]
@@ -207,7 +207,7 @@ int main(void)
  8000232:	f043 0320 	orr.w	r3, r3, #32
  8000236:	b29b      	uxth	r3, r3
  8000238:	8293      	strh	r3, [r2, #20]
-		GPIOA->ODR &= ~(0b1<<5);	// ul1
+		GPIOA->ODR &= ~(0b1<<5);	// ul1 vypnutie
  800023a:	4a34      	ldr	r2, [pc, #208]	; (800030c <main+0x154>)
  800023c:	4b33      	ldr	r3, [pc, #204]	; (800030c <main+0x154>)
  800023e:	8a9b      	ldrh	r3, [r3, #20]
@@ -215,7 +215,7 @@ int main(void)
  8000242:	f023 0320 	bic.w	r3, r3, #32
  8000246:	b29b      	uxth	r3, r3
  8000248:	8293      	strh	r3, [r2, #20]
-		GPIOA->BSRRL |= 0b1<<5;		// zasvietenie
+		GPIOA->BSRRL |= 0b1<<5;		// ul1 zasvietenie
  800024a:	4a30      	ldr	r2, [pc, #192]	; (800030c <main+0x154>)
  800024c:	4b2f      	ldr	r3, [pc, #188]	; (800030c <main+0x154>)
  800024e:	8b1b      	ldrh	r3, [r3, #24]
@@ -223,7 +223,7 @@ int main(void)
  8000252:	f043 0320 	orr.w	r3, r3, #32
  8000256:	b29b      	uxth	r3, r3
  8000258:	8313      	strh	r3, [r2, #24]
-		GPIOA->BSRRH |= 0b1<<5;		// vypnutie
+		GPIOA->BSRRH |= 0b1<<5;		// ul1 vypnutie
  800025a:	4a2c      	ldr	r2, [pc, #176]	; (800030c <main+0x154>)
  800025c:	4b2b      	ldr	r3, [pc, #172]	; (800030c <main+0x154>)
  800025e:	8b5b      	ldrh	r3, [r3, #26]
@@ -232,7 +232,7 @@ int main(void)
  8000266:	b29b      	uxth	r3, r3
  8000268:	8353      	strh	r3, [r2, #26]
 
-		GPIOA->ODR ^= 0b1<<5; //zmena stavu LED (zapnute)
+		GPIOA->ODR ^= 0b1<<5; // ul1 zmena stavu LED (zapnute)
  800026a:	4a28      	ldr	r2, [pc, #160]	; (800030c <main+0x154>)
  800026c:	4b27      	ldr	r3, [pc, #156]	; (800030c <main+0x154>)
  800026e:	8a9b      	ldrh	r3, [r3, #20]
@@ -240,7 +240,7 @@ int main(void)
  8000272:	f083 0320 	eor.w	r3, r3, #32
  8000276:	b29b      	uxth	r3, r3
  8000278:	8293      	strh	r3, [r2, #20]
-		GPIOA->ODR ^= 0b1<<5; //zmena stavu LED (vypnute)
+		GPIOA->ODR ^= 0b1<<5; //ul1 zmena stavu LED (vypnute)
  800027a:	4a24      	ldr	r2, [pc, #144]	; (800030c <main+0x154>)
  800027c:	4b23      	ldr	r3, [pc, #140]	; (800030c <main+0x154>)
  800027e:	8a9b      	ldrh	r3, [r3, #20]

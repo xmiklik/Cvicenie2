@@ -59,18 +59,18 @@ int main(void)
 		GPIOA->PUPDR |= (0b01)<<(5*2);	// up
 		GPIOA->OSPEEDR |= (0b11)<<(5*2);	// 40MHz
 
-		//nastavenie vstupu pre tlacidlo
+		//nastavenie vstupu pre tlacidlo ul2
 		GPIOC->MODER &= ~((0b11)<<(13*2));	// Input
 		GPIOC->OTYPER &= ~((0b1)<<13);		// Push pull
 		GPIOC->PUPDR &=  ~(0b11<<(13*2));	// No pull
 
-		GPIOA->ODR |= 0b1<<5;		// ul1
-		GPIOA->ODR &= ~(0b1<<5);	// ul1
-		GPIOA->BSRRL |= 0b1<<5;		// zasvietenie
-		GPIOA->BSRRH |= 0b1<<5;		// vypnutie
+		GPIOA->ODR |= 0b1<<5;		// ul1 zapnutie
+		GPIOA->ODR &= ~(0b1<<5);	// ul1 vypnutie
+		GPIOA->BSRRL |= 0b1<<5;		// ul1 zasvietenie
+		GPIOA->BSRRH |= 0b1<<5;		// ul1 vypnutie
 
-		GPIOA->ODR ^= 0b1<<5; //zmena stavu LED (zapnute)
-		GPIOA->ODR ^= 0b1<<5; //zmena stavu LED (vypnute)
+		GPIOA->ODR ^= 0b1<<5; // ul1 zmena stavu LED (zapnute)
+		GPIOA->ODR ^= 0b1<<5; //ul1 zmena stavu LED (vypnute)
 
 
 	  while (1)
@@ -90,11 +90,6 @@ int main(void)
 		        GPIOA->ODR |= 0b1<<5;
 		  for(int i=0;i<1000000;i++)
 		        GPIOA->ODR &= ~(0b1<<5);
-
-		  /*GPIOA->ODR |= 0b1<<5;
-		  delay(10000);
-		  GPIOA->ODR &= ~(0b1<<5);
-		  delay(10000);*/
 
 	  }
 	  return 0;
