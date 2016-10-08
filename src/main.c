@@ -86,6 +86,13 @@ int main(void)
 			  GPIOA->ODR &= ~(0b1<<5);
 		  }
 
+		  for(i=0;i<1000000;i++)
+		  {
+		        GPIOA->ODR |= 0b1<<5;
+		     for(i=0;i<1000000;i++)
+		        GPIOA->ODR &= ~(0b1<<5);
+		  }
+
 		  /*zapni LED
 		  delay(1000000);
 		  vypni LED
