@@ -338,10 +338,7 @@ int main(void)
  8000302:	4a04      	ldr	r2, [pc, #16]	; (8000314 <main+0x15c>)
  8000304:	4293      	cmp	r3, r2
  8000306:	ddf0      	ble.n	80002ea <main+0x132>
-		  /*GPIOA->ODR |= 0b1<<5;
-		  delay(10000);
-		  GPIOA->ODR &= ~(0b1<<5);
-		  delay(10000);*/
+		        GPIOA->ODR &= ~(0b1<<5);
 
 	  }
  8000308:	e7bf      	b.n	800028a <main+0xd2>
