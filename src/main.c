@@ -66,8 +66,8 @@ int main(void)
 
 		GPIOA->ODR |= 0b1<<5;		// ul1
 		GPIOA->ODR &= ~(0b1<<5);	// ul1
-		GPIOA->BSRRL |= 0b1<<5;		// zhasnutie
-		GPIOA->BSRRH |= 0b1<<5;		// zasvietenie
+		GPIOA->BSRRL |= 0b1<<5;		// zasvietenie
+		GPIOA->BSRRH |= 0b1<<5;		// vypnutie
 
 		GPIOA->ODR ^= 0b1<<5; //zmena stavu LED (zapnute)
 		GPIOA->ODR ^= 0b1<<5; //zmena stavu LED (vypnute)
@@ -86,17 +86,15 @@ int main(void)
 			  GPIOA->ODR &= ~(0b1<<5);
 		  }
 
-		  for(i=0;i<1000000;i++)
-		  {
+		  for(int i=0;i<1000000;i++)
 		        GPIOA->ODR |= 0b1<<5;
-		     for(i=0;i<1000000;i++)
+		  for(int i=0;i<1000000;i++)
 		        GPIOA->ODR &= ~(0b1<<5);
-		  }
 
-		  /*zapni LED
-		  delay(1000000);
-		  vypni LED
-		  delay(1000000);*/
+		  /*GPIOA->ODR |= 0b1<<5;
+		  delay(10000);
+		  GPIOA->ODR &= ~(0b1<<5);
+		  delay(10000);*/
 
 	  }
 	  return 0;
