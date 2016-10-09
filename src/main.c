@@ -72,7 +72,8 @@ int main(void)
 		GPIOA->ODR ^= 0b1<<5; // ul1 zmena stavu LED (zapnute)
 		GPIOA->ODR ^= 0b1<<5; //ul1 zmena stavu LED (vypnute)
 
-
+		int count=0;
+		int i = 0;
 	  while (1)
 	  {
 		  button = (GPIOC->IDR & (0b1<<13))>>13;
@@ -86,10 +87,30 @@ int main(void)
 			  GPIOA->ODR &= ~(0b1<<5);
 		  }
 
-		  for(int i=0;i<1000000;i++)
+		  // Uloha 3 - blikanie
+		  /*for(int i=0;i<1000000;i++)
 		        GPIOA->ODR |= 0b1<<5;
 		  for(int i=0;i<1000000;i++)
 		        GPIOA->ODR &= ~(0b1<<5);
+
+		  // Uloha3 - zmena stavu z 0 - 1 - 0
+		  button = (GPIOC->IDR & (0b1<<13))>>13;
+		     if(button==0)
+		     {
+		       i=1;
+		       if(i==1){
+		        count++;
+		        if(button==1){
+		         i=0;
+		        }
+		       }
+		     }
+		     if(count%2==1){
+		      GPIOA->ODR |= 0b1<<5;
+		     }
+		     else{
+		      GPIOA->ODR &= ~(0b1<<5);
+		     }*/
 
 	  }
 	  return 0;
