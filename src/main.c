@@ -78,39 +78,38 @@ int main(void)
 	  {
 		  button = (GPIOC->IDR & (0b1<<13))>>13;
 
-		  if(button==0)
+		  /*if(button==0)
 		  {
 			  GPIOA->ODR |= 0b1<<5;
 		  }
 		  else
 		  {
 			  GPIOA->ODR &= ~(0b1<<5);
-		  }
+		  }*/
 
 		  // Uloha 3 - blikanie
 		  /*for(int i=0;i<1000000;i++)
 		        GPIOA->ODR |= 0b1<<5;
 		  for(int i=0;i<1000000;i++)
-		        GPIOA->ODR &= ~(0b1<<5);
+		        GPIOA->ODR &= ~(0b1<<5);*/
 
 		  // Uloha3 - zmena stavu z 0 - 1 - 0
-		  button = (GPIOC->IDR & (0b1<<13))>>13;
-		     if(button==0)
-		     {
-		       i=1;
-		       if(i==1){
-		        count++;
-		        if(button==1){
-		         i=0;
-		        }
-		       }
-		     }
+		  if((button == 0) )
+		    {
+		     for(i=0;i<300000;i++){};
+		    }
+		    if((button == 0) )
+		    {
 		     if(count%2==1){
-		      GPIOA->ODR |= 0b1<<5;
-		     }
-		     else{
 		      GPIOA->ODR &= ~(0b1<<5);
-		     }*/
+		      count++;
+		     }
+		     else {
+		      GPIOA->ODR |= 0b1<<5;
+		      count++;
+		     }
+
+		    }
 
 	  }
 	  return 0;
